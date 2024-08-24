@@ -1,0 +1,39 @@
+using System;
+using System.Windows.Forms;
+
+public class Program
+{
+    [STAThread]
+    public static void Main()
+    {
+        Application.EnableVisualStyles();
+        Application.SetCompatibleTextRenderingDefault(false);
+
+        float nota = 0;
+
+        string input = Microsoft.VisualBasic.Interaction.InputBox("DIIGTE LA NOTA", "Entrada de Nota", "0");
+        if (float.TryParse(input, out nota))
+        {
+            if (nota >= 0 && nota <= 2.9)
+            {
+                MessageBox.Show("perdiste");
+            }
+            else if (nota >= 2.9 && nota <= 3.5)
+            {
+                MessageBox.Show("pasaste");
+            }
+            else if (nota >= 3.5 && nota <= 5.0)
+            {
+                MessageBox.Show("ganaste");
+            }
+            else
+            {
+                MessageBox.Show("nota no existe");
+            }
+        }
+        else
+        {
+            MessageBox.Show("Entrada inválida");
+        }
+    }
+}
